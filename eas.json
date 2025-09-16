@@ -1,0 +1,42 @@
+{
+  "cli": {
+    "version": ">= 3.13.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "channel": "development"
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "channel": "preview",
+      "env": {
+          "Maps_NATIVE_KEY": "${secret.Maps_NATIVE_KEY}",
+          "EXPO_PUBLIC_Maps_API_KEY": "${secret.EXPO_PUBLIC_Maps_API_KEY}",
+          "EXPO_PUBLIC_MAPBOX_ACCESS_TOKEN": "${secret.EXPO_PUBLIC_MAPBOX_ACCESS_TOKEN}",
+          "EXPO_PUBLIC_API_URL": "${secret.EXPO_PUBLIC_API_URL}",
+          "MAPBOX_DOWNLOADS_TOKEN": "${secret.MAPBOX_DOWNLOADS_TOKEN}"
+        }
+    },
+    "production": {
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "ios": {
+        "simulator": false
+      },
+      "channel": "production",
+      "env": {
+        "GOOGLE_MAPS_NATIVE_KEY": "@GOOGLE_MAPS_NATIVE_KEY",
+        "EXPO_PUBLIC_GOOGLE_MAPS_API_KEY": "@EXPO_PUBLIC_GOOGLE_MAPS_API_KEY",
+        "EXPO_PUBLIC_MAPBOX_ACCESS_TOKEN": "@EXPO_PUBLIC_MAPBOX_ACCESS_TOKEN",
+        "EXPO_PUBLIC_API_URL": "@EXPO_PUBLIC_API_URL"
+      }
+    }
+  }
+}
